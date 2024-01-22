@@ -3,7 +3,7 @@ import time
 WIDTH = 700
 HEIGHT = 400
 xSpeed = 4
-ySpeed = 3
+ySpeed = 5
 
 window = Tk()
 canvas = Canvas(window, width=WIDTH, height=HEIGHT)
@@ -14,9 +14,9 @@ lilbackground = backgroundimg.subsample(2, 2)
 background = canvas.create_image(0, 0, image=lilbackground, anchor=NW)
 
 myimage = PhotoImage(file="sailor-moon.png")
-lilimage = myimage.subsample(5, 5)
+lilimage = myimage.subsample(4, 4)
 moonimage = canvas.create_image(0, 0, image=lilimage, anchor=NW)
-
+rotation_angle = 0
 
 
 while True:
@@ -24,6 +24,8 @@ while True:
     print(coordinates)
     if(coordinates[0]>=(WIDTH - lilimage.width()) or coordinates[0]<0):
         xSpeed = xSpeed * -1
+
+
     if (coordinates[1] >= (HEIGHT - lilimage.height())or coordinates[1]<0):
         ySpeed = ySpeed * -1
     canvas.move(moonimage, xSpeed, ySpeed)
